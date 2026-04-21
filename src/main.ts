@@ -3,6 +3,9 @@ import { Post } from "./components/Post";
 import { Header } from "./components/Header";
 import { getPosts } from "./utils";
 
+import iconHeart from "./assets/icon-heart.png";
+import iconHeartFilled from "./assets/icon-filled-heart-removebg-preview.png";
+
 const app = document.querySelector<HTMLDivElement>("#app")!;
 
 let posts = await getPosts();
@@ -47,19 +50,7 @@ function handleLike(index: number) {
 
   const likeBtn = article.querySelector(".like-btn img") as HTMLImageElement;
   if (likeBtn) {
-    if (post.isLiked) {
-      likeBtn.src = likeBtn.src.includes("filled")
-        ? likeBtn.src
-        : likeBtn.src.replace(
-            "icon-heart",
-            "icon-filled-heart-removebg-preview",
-          );
-    } else {
-      likeBtn.src = likeBtn.src.replace(
-        "icon-filled-heart-removebg-preview",
-        "icon-heart",
-      );
-    }
+    likeBtn.src = post.isLiked ? iconHeartFilled : iconHeart;
   }
 
   const footer = article.querySelector(".post-footer") as HTMLElement;
