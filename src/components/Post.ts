@@ -38,4 +38,27 @@ function PostInteractions(likes: number, comment: string, username: string) {
     `;
 }
 
-export { Poster, PostInteractions };
+function Post({
+  name,
+  username,
+  location,
+  avatar,
+  post,
+  comment,
+  likes,
+}: PostType) {
+  const header = Poster(name, avatar, location);
+  const footer = PostInteractions(likes, comment, username);
+  const imgsrc = getImageSrc(post);
+
+  return `
+    <article>
+        ${header}
+        <img src="${imgsrc}" alt="${post.substring(0, post.lastIndexOf("."))}" />
+        ${footer}
+    </article>
+  `;
+}
+
+export { Poster, PostInteractions, Post };
+export default Post;
