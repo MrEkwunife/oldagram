@@ -33,7 +33,7 @@ img {
     POSTS
 -------------- */
 
-.poster-header {
+.post-header {
   display: flex;
   align-items: center;
   gap: 0.7rem;
@@ -51,4 +51,24 @@ img {
 
 .poster-location {
   font-weight: 1.2rem;
+}
+
+.post-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.post-actions button {
+  width: 2.3rem;
+  height: 2.3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.post-actions button:hover,
+.post-actions button:focus {
+  opacity: 0.5;
 }

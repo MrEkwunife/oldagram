@@ -1,4 +1,4 @@
-type Post = {
+type PostType = {
   name: string;
   username: string;
   location: string;
@@ -13,13 +13,14 @@ function getImageSrc(imgstr: string) {
   return urlObj.href;
 }
 
-async function getPosts(): Promise<Post[]> {
+async function getPosts(): Promise<PostType[]> {
   const res = await fetch("/data.json");
   if (!res.ok) {
     throw new Error(`Failed to fetch posts: ${res.status}`);
   }
-  const data: Post[] = await res.json();
+  const data: PostType[] = await res.json();
   return data;
 }
 
 export { getImageSrc, getPosts };
+export type { PostType };
