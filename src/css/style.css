@@ -23,13 +23,7 @@ img {
 #app {
   max-width: 450px;
   margin: 0 auto;
-  padding-top: 2.4rem;
-}
-
-@media (max-width: 450px) {
-  #app {
-    padding: 1rem;
-  }
+  padding-top: 10rem;
 }
 
 /*-------------
@@ -41,8 +35,37 @@ img {
 }
 
 /*-------------
+    HEADER
+-------------- */
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: white;
+  padding: 1rem;
+}
+
+.app-header img:first-child {
+  width: 12.7rem;
+}
+
+/*-------------
     POSTS
 -------------- */
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 3.4rem;
+}
 
 .post-header {
   display: flex;
@@ -51,12 +74,14 @@ img {
   margin-bottom: 1rem;
 }
 
-.poster-profile-pic {
+.poster-profile-pic,
+.app-header img:last-child {
   width: 3.4rem;
   height: 3.4rem;
 }
 
-.poster-profile-pic img {
+.poster-profile-pic img,
+.app-header img:last-child {
   border-radius: 10000%;
 }
 
