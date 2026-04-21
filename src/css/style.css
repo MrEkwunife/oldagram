@@ -26,6 +26,13 @@ img {
   padding-top: 10rem;
 }
 
+@media (max-width: 450px) {
+  #app {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
 /*-------------
     UTILS
 -------------- */
