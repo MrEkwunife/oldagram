@@ -1,5 +1,6 @@
 import { getImageSrc } from "../utils";
 import iconHeart from "../assets/icon-heart.png";
+import iconHeartFilled from "../assets/icon-filled-heart-removebg-preview.png";
 import iconComment from "../assets/icon-comment.png";
 import iconDm from "../assets/icon-dm.png";
 
@@ -21,11 +22,16 @@ function Poster(name: string, imgSrcString: string, location: string) {
     `;
 }
 
-function PostInteractions(likes: number, comment: string, username: string) {
+function PostInteractions(
+  likes: number,
+  comment: string,
+  username: string,
+  isLiked: boolean,
+) {
   return `
         <footer class="post-footer">
             <div role="group" aria-label="Post actions" class="post-actions">
-                <button><img src="${iconHeart}" alt="" /></button>
+                <button class="like-btn"><img src="${isLiked ? iconHeartFilled : iconHeart}" alt="" /></button>
                 <button><img src="${iconComment}" alt="" /></button>
                 <button><img src="${iconDm}" alt="" /></button>
             </div>
@@ -46,9 +52,10 @@ function Post({
   post,
   comment,
   likes,
+  isLiked,
 }: PostType) {
   const header = Poster(name, avatar, location);
-  const footer = PostInteractions(likes, comment, username);
+  const footer = PostInteractions(likes, comment, username, isLiked);
   const imgsrc = getImageSrc(post);
 
   return `
